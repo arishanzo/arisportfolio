@@ -4,27 +4,29 @@ import { useSpring, animated } from '@react-spring/web';
 
 function Bahasa () {
 
-    const [ref, inView] = useInView({
-        triggerOnce: true, // animasi hanya sekali
-        threshold: 0.1,     // tampil saat 10% elemen terlihat
+    
+      const [ref, inView] = useInView({
+        triggerOnce: true, 
+        threshold: 0.1,    
       });
-
+    
       
-   
-  const styles = useSpring({
-    opacity: inView ? 1 : 0,
-    transform: inView ? 'translateX(0px)' : 'translateX(-50px)',
-    config: { tension: 170, friction: 20 },
-    delay: inView ? 300 : 0,
-  });
-
+    
+    const styles = useSpring({
+      opacity: inView ? 1 : 0,
+        transform: inView ? 'translateY(0px)' : 'translateY(50px)', // ⬆️ Geser dari bawah
+        delay: inView ? 300 : 0,
+        config: { tension: 170, friction: 20 },
+    });
+    
+    
   return (
 
 
     
        <animated.div style={{ ...styles }}   ref={ref}>
    
-    <section id="bahasa" class="container  mx-auto px-4 space-y-6 bg-dark py-8 md:py-12 lg:py-20">
+    <section id="bahasa" class="container  mx-auto max-w-full px-4 space-y-6 bg-dark py-8 md:py-12 lg:py-20 overflow-x-hidden">
 
     <div class="mx-auto flex max-w-[58rem] flex-col items-center space-y-4 text-center mb-20">
 

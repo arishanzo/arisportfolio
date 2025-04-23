@@ -43,7 +43,7 @@ class Portfolio extends React.Component {
             
             <a href="#" class="font-semibold inline-block">Project</a>
         </div>
-        <a href="#" className="text-gray-700">See All</a>
+        <a href="https://github.com/arishanzo" className="text-gray-700">See All</a>
     </div>
 
         <div class="grid p-8 grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-10">
@@ -62,7 +62,24 @@ class Portfolio extends React.Component {
             <p class="leading-relaxed mb-3 text-gray-500">
                 {item.deskripsi}
             </p>
-            <div class="flex items-center flex-wrap">
+
+            <div class="flex  justify-center gap-2 sm:gap-4 mt-8">
+     <div
+          class="justify-center px-4 py-2 cursor-pointer bg-green-900 max-w-min mx-auto mt-8 rounded-lg text-gray-300 hover:bg-green-800 hover:text-gray-100 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-gray-200">
+          {item.Bahasa1}
+        </div>
+        <div
+          class="justify-center px-4 py-2 cursor-pointer bg-green-900 max-w-min mx-auto mt-8 rounded-lg text-gray-300 hover:bg-green-800 hover:text-gray-100 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-gray-200">
+          {item.Bahasa2}
+        </div>
+        <div
+          class="justify-center px-4 py-2 cursor-pointer bg-green-900 max-w-min mx-auto mt-8 rounded-lg text-gray-300 hover:bg-green-800 hover:text-gray-100 dark:bg-gray-700 dark:text-gray-300 dark:hover:bg-gray-600 dark:hover:text-gray-200">
+          {item.Bahasa3}
+        </div>
+         
+        </div>
+
+            <div class="flex items-center flex-wrap pt-8">
                 <a href={item.link} class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">
                    Link Github
                     <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"

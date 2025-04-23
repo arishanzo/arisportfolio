@@ -1,28 +1,38 @@
 import React from "react";
+
+import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from '@react-spring/web';
 
 
 function HeroSection () {
 
-    const styles = useSpring({
-        from: { opacity: 0, transform: 'translateY(20px) scale(0.95)' },
-        to: { opacity: 1, transform: 'translateY(0px) scale(1)' },
-        delay: 200,
-        config: { tension: 170, friction: 20 },
+    const [ref, inView] = useInView({
+        triggerOnce: true, 
+        threshold: 0.1,    
       });
     
+      
+    
+    const styles = useSpring({
+      opacity: inView ? 1 : 0,
+        transform: inView ? 'translateY(0px)' : 'translateY(50px)', // ⬆️ Geser dari bawah
+        delay: inView ? 300 : 0,
+        config: { tension: 170, friction: 20 },
+    });
 
  return (
 
    <>
    
    
+       
+          <animated.div style={{ ...styles }}   ref={ref}>
 
-   <animated.div style={{ ...styles }}>
-   <section class="pt-16 lg:pt-32 bg-dark pb-4  bg-center bg-cover ">
-   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative text-center relative">
-   <div class="absolute -top-20 -left-10  w-[200px] h-[200px] md:w-[400px] md:h-[400px] bg-gradient-to-br from-purple-600 via-blue-500 to-teal-400 opacity-30 rounded-full blur-3xl"></div>
-   <div class="absolute bottom-0 right-0 w-[200px] h-[200px] md:w-[500px] md:h-[500px] bg-gradient-to-tr from-indigo-500 via-fuchsia-500 to-pink-500 opacity-30 rounded-full blur-3xl"></div>
+   <section class="pt-28 lg:pt-32 bg-dark pb-32  bg-center bg-cover  overflow-x-hidden   overflow-y-hidden">
+   <div class=" px-4 sm:px-6 lg:px-8 relative text-center relative">
+    
+   <div class="absolute -top-20 -left-10  w-[100px] h-[200px] md:w-[400px] md:h-[400px] bg-gradient-to-br from-purple-600 via-blue-500 to-teal-400 opacity-30 rounded-full blur-3xl"></div>
+   <div class="absolute bottom-0 right-0 w-[100px] h-[100px] md:w-[500px] md:h-[500px] bg-gradient-to-tr from-indigo-500 via-fuchsia-500 to-pink-500 opacity-30 rounded-full blur-3xl"></div>
 
 
 
@@ -58,10 +68,9 @@ function HeroSection () {
                   
                     </span>
        </div>
+      
    </div>
 </section>
-
-
 </animated.div>
              
 </>

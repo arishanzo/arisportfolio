@@ -27,7 +27,7 @@ const styles = useSpring({
   
     <>
          <animated.div style={{ ...styles }}   ref={ref}>
-        <section class="bg-white lg:grid lg:min-h-screen lg:place-content-center dark:bg-gray-900 ">
+        <section class="bg-white max-w-full  lg:grid lg:min-h-screen lg:place-content-center dark:bg-gray-900 overflow-x-hidden ">
   <div
     class="mx-auto w-screen max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24  md:grid md:grid-cols-2 md:items-center md:gap-4 lg:px-8 lg:py-32"
   >
@@ -79,9 +79,9 @@ const styles = useSpring({
   <div class="absolute top-[30%] -left-20 w-[400px] h-[400px] bg-gradient-to-br from-purple-600 via-blue-500 to-teal-400 opacity-30 rounded-full blur-3xl"></div>
   <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-gradient-to-tr from-indigo-500 via-fuchsia-500 to-pink-500 opacity-30 rounded-full blur-3xl"></div>
 
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8  ">
+  <div class="max-w-7xl mx-auto p-4 sm:px-6 lg:px-8  ">
 
-  <div class="text-center mb-12">
+  <div class="text-center mb-12 pr-4">
   <h2 class="my-4 text-2xl  text-center font-bold text-white md:text-3xl">Experience</h2>
       <p class="text-lg text-gray-300 font-semibold ">I have experience developing website projects for more than 3 years</p>
           </div>
