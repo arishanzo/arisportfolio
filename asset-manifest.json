@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/arisportfolio/static/css/main.5b604b13.css",
-    "main.js": "/arisportfolio/static/js/main.657c4f82.js",
+    "main.css": "/arisportfolio/static/css/main.3f4bb8bf.css",
+    "main.js": "/arisportfolio/static/js/main.d9ac596e.js",
     "static/js/453.acca0757.chunk.js": "/arisportfolio/static/js/453.acca0757.chunk.js",
     "static/media/logo.svg": "/arisportfolio/static/media/logo.6ce24c58023cc2f8fd88fe9d219db6c6.svg",
     "index.html": "/arisportfolio/index.html",
-    "main.5b604b13.css.map": "/arisportfolio/static/css/main.5b604b13.css.map",
-    "main.657c4f82.js.map": "/arisportfolio/static/js/main.657c4f82.js.map",
+    "main.3f4bb8bf.css.map": "/arisportfolio/static/css/main.3f4bb8bf.css.map",
+    "main.d9ac596e.js.map": "/arisportfolio/static/js/main.d9ac596e.js.map",
     "453.acca0757.chunk.js.map": "/arisportfolio/static/js/453.acca0757.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5b604b13.css",
-    "static/js/main.657c4f82.js"
+    "static/css/main.3f4bb8bf.css",
+    "static/js/main.d9ac596e.js"
   ]
 }
