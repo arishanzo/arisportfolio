@@ -1,9 +1,48 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import { useInView } from 'react-intersection-observer';
 import { useSpring, animated } from '@react-spring/web';
+import { getDataIcon } from "../data/dataIcon";
 
 const About = () =>  {
+
+  const data = getDataIcon();
+  const [isPaused, setIsPaused] = useState(false);
+  const [index, setIndex] = useState(0);
+
+  const intervalRef = useRef(null);
+
+  const startAutoScroll = () => {
+    intervalRef.current = setInterval(() => {
+      setIndex((prev) => (prev + 1) % data.length);
+    }, 3000);
+  };
+
+  const stopAutoScroll = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+    }
+  };
+
+  // Mulai animasi saat mount
+  useEffect(() => {
+    if (!isPaused) {
+      startAutoScroll();
+    }
+    return () => stopAutoScroll();
+  }, [isPaused]);
+
+  const handleImageClick = () => {
+    setIsPaused(true); // menghentikan animasi saat diklik
+    stopAutoScroll();
+  };
+
+
+ const nextSlide = () => setIndex((prev) => (prev + 1) % data.length);
+
+ // Fungsi untuk navigasi ke gambar sebelumnya
+ const prevSlide = () => setIndex((prev) => (prev - 1 + data.length) % data.length);
+
 
 
   const [ref, inView] = useInView({
@@ -27,7 +66,7 @@ const styles = useSpring({
   
     <>
          <animated.div style={{ ...styles }}   ref={ref}>
-        <section class="bg-white max-w-full  lg:grid lg:min-h-screen lg:place-content-center dark:bg-gray-900 overflow-x-hidden ">
+        <section class="max-w-full  lg:grid lg:min-h-screen lg:place-content-center dark:bg-gray-900 overflow-x-hidden ">
   <div
     class="mx-auto w-screen max-w-screen-xl px-4 py-16 sm:px-6 sm:py-24  md:grid md:grid-cols-2 md:items-center md:gap-4 lg:px-8 lg:py-32"
   >
@@ -59,18 +98,38 @@ const styles = useSpring({
           Linkedin
         </a>
       </div>
+
+                                     
+  <div className=" overflow-hidden relative slideshow-container pt-8 pb-8">
+  <h1 class="text-xl font-bold text-gray-900 pb-8 sm:text-xl dark:text-white">
+        My
+        <strong class="text-indigo-600"> Skill </strong>
+      
+      </h1>
+  <div
+        className="flex transition-transform duration-1000 ease-in-out slideshow-track"
+        style={{
+          transform: `translateX(-${index * 100}%)`,
+        }}
+      >       {data.map((img, i) => (
+          <img key={i} src={img.icon} alt={`Slide ${i}`} className="w-5 h-5 gap-16 slideshow-image" onClick={handleImageClick}/>
+        ))}
+      </div>
+   
+    </div>
+
     </div>
 
     <div class=" md:mt-0 sm:p-10 p-8">
       <img 
         class="w-full h-auto max-w-full rounded-lg object-cover md:h-auto lg:h-[500px] shadow-xl" 
-        src="./photo/arisfoto.jpg" 
-        alt="Any Image Here" 
+        src={`${process.env.PUBLIC_URL}/photo/arisfoto.jpg`} 
+        alt="" 
       />
     </div>
   </div>
 
-
+      
 {/* batas */}
    
    <div class=" bg-dark max-w-full mb-32 relative ">
@@ -82,7 +141,7 @@ const styles = useSpring({
   <div class="max-w-7xl mx-auto p-4 sm:px-6 lg:px-8  ">
 
   <div class="text-center mb-12 pr-4">
-  <h2 class="my-4 text-2xl  text-center font-bold text-white md:text-3xl">Experience</h2>
+  <h2 class="my-4 text-2xl  text-center font-bold text-indigo-600 md:text-3xl">Experience</h2>
       <p class="text-lg text-gray-300 font-semibold ">I have experience developing website projects for more than 3 years</p>
           </div>
     <div
@@ -90,7 +149,7 @@ const styles = useSpring({
       <div class="group relative bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
         <div class="relative space-y-8 py-12 p-8">
           <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
-            stroke-linejoin="round" color="white"  height="50" width="50"
+            stroke-linejoin="round"   height="50" width="50"
             xmlns="http://www.w3.org/2000/svg">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
             <path
@@ -114,7 +173,7 @@ Become IT Support for a company with the task of helping to repair the internet 
       <div class="group relative bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
         <div class="relative space-y-8 py-12 p-8">
           <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
-            stroke-linejoin="round" color="white"  height="50" width="50"
+            stroke-linejoin="round"   height="50" width="50"
             xmlns="http://www.w3.org/2000/svg">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
             <path
@@ -138,7 +197,7 @@ Using PHP, JAVASCRIPT, AJAX, CSS programming languages ​​with framework
       <div class="group relative bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
         <div class="relative space-y-8 py-12 p-8">
           <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
-            stroke-linejoin="round" color="white"   height="50" width="50"
+            stroke-linejoin="round"  height="50" width="50"
             xmlns="http://www.w3.org/2000/svg">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
             <path
@@ -164,7 +223,7 @@ Teamwork and team collaboration to build design templates that have selling powe
       <div class="group relative bg-gray-800 transition hover:z-[1] hover:shadow-2xl hover:shadow-gray-600/10">
         <div class="relative space-y-8 py-12 p-8">
           <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round"
-            stroke-linejoin="round" color="white"  height="50" width="50"
+            stroke-linejoin="round"  height="50" width="50"
             xmlns="http://www.w3.org/2000/svg">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
             <path

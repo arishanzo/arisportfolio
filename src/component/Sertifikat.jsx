@@ -1,5 +1,5 @@
 import React from "react";
-import { getDataSertif } from "../data/datasertif";
+import { getDataSertif } from "../data/dataSertif";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -30,7 +30,7 @@ class Sertifkat extends React.Component {
 
     <>
     
-  <div class="container   mx-auto md:mt-60 p-8" id="sertifikat">
+  <div class="container mx-auto md:mt-28 p-8" id="sertifikat">
   <div class="mx-auto max-w-7xl  grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10">
     <div className="block  justify-center    justify-self-start  md:flex mb-8 md:mb-32">
     <div className="w-full max-w-xs mx-auto text-center p-4 md:max-w-lg lg:max-w-xl">

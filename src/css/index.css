@@ -17,3 +17,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.slideshow-container {
+  overflow: hidden;
+  position: relative;
+}
+
+.slideshow-track {
+  display: flex;
+  width: max-content;
+  animation: scroll 5s linear infinite;
+}
+
+.slideshow-image {
+  width: 60px; /* atau ukuran tetap seperti 500px */
+  height: 60px;
+  object-fit: cover;
+  margin-right: 40px;
+}
+
+/* Keyframe untuk animasi scroll horizontal */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

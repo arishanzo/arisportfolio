@@ -5,7 +5,7 @@ const getDataSertif = () => ([
       title: "IT Support Pada Program Fresh Graduate Academy",
       deskripsi: "Fresh Graduate Academy Digital Talent Scholarship 2023 IT Support training covering the Basics of Technical Support, the Ins and Outs of Computer Networks, Operating Systems and You: Becoming a Power User, Administration of IT Infrastructure Systems and Services, and IT Security Defense against Digital Crime",
       Perusahaan: "Digital Talent Kominfo",
-      link: "https://digitalent.komdigi.go.id/cek-sertifikat",
+      link:  "https://digitalent.komdigi.go.id/cek-sertifikat",
     },
     {
         id: 2, 

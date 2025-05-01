@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { getDataPortfolioWeb } from "../data/dataportfolio";
+import React from "react";
+import { getDataPortfolioWeb } from "../data/dataPortfolio";
 
 class Portfolio extends React.Component {
   constructor(props) {
@@ -37,11 +37,11 @@ class Portfolio extends React.Component {
             <p class="text-lg text-indigo-500 font-semibold">Discover our latest projects and success stories</p>
         </div>
     
-
-        <div class="border-b border-gray-800 mb-5 flex justify-between text-sm ">
+        
+        <div class="  border-gray-800 mb-5 flex justify-between text-sm ">
         <div class="text-purple-600 flex items-center pb-2 pr-2 border-b-2 border-purple-600 uppercase">
             
-            <a href="#" class="font-semibold inline-block">Project</a>
+            <a href="#project" class="font-semibold inline-block">Project</a>
         </div>
         <a href="https://github.com/arishanzo" className="text-gray-700">See All</a>
     </div>
@@ -52,7 +52,7 @@ class Portfolio extends React.Component {
     
         {data.slice(0, visibleCount).map((item, index) =>(
 
-<div class="flex items-center flex-col md:flex-row  gap-10 shadow-xl " key={index}>
+<div class="flex items-center flex-col md:flex-row bg-gray-800 rounded-2xl  gap-10 shadow-2xl " key={index}>
       <div>
       <div class="p-4 max-w-md">
     <div class="h-full  border-opacity-60 rounded-lg overflow-hidden">
